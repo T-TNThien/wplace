@@ -1,13 +1,14 @@
 .color {
     width: 20px;
     height: 20px;
-    border: solid 2px lightgrey;
+    border: solid 1px lightgrey;
 }
 
 #color-palette {
     margin: 20px;
     padding: 20px;
     background-color: blanchedalmond;
+    border: solid 1px lightgrey;
     border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(10, auto);
@@ -29,7 +30,14 @@
 .pixel {
     width: 20px;
     height: 20px;
-    background-color: #000000;
+    box-sizing: border-box;
+}
+
+.pixel:hover {
+    opacity: 0.5;
+}
+
+.pixel-active {
     border: solid 1px white;
 }
 
