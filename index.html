@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 100; i++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            for (let i = 0; i < 100; i++) {
+                let sq = document.createElement("canvas");
+                sq.classList.add("square")
+            }
+            document.body.appendChild(row);
+            // echo "<div class=\"row\">";
+            // for ($i = 0; $i < 100; $i++) {
+            //     echo "<canvas class=\"square\" width=\"20\" height=\"20\" style=\"background-color: #000000\"></div>";
+            // }
+            // echo "</div>";
+        }
+    </script>
+</body>
+</html>
