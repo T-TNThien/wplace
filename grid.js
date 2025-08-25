@@ -6,6 +6,7 @@ container.style.width = WIDTH * 20 + "px";
 document.body.appendChild(wrapper);
 wrapper.appendChild(container);
 
+// Create grid
 for (let i = 0; i < WIDTH; i++) {
   let row = document.createElement("div");
   row.classList.add("row");
@@ -15,6 +16,7 @@ for (let i = 0; i < WIDTH; i++) {
     sq.setAttribute("id", id);
     sq.style.backgroundColor = COLOR_LIST[colorDict[id]] || DEFAULT_COLOR;
     sq.classList.add("pixel");
+    // Set active pixel
     sq.onclick = function () {
         setChosenPosition(this.id);
     }
