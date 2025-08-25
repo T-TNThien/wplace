@@ -1,8 +1,15 @@
 let colorDict = getDict();
-for (let i = 0; i < 10; i++) {
+let wrapper = document.createElement("div");
+wrapper.setAttribute("id", "grid-wrapper");
+let container = document.createElement("div");
+container.style.width = WIDTH * 20 + "px";
+document.body.appendChild(wrapper);
+wrapper.appendChild(container);
+
+for (let i = 0; i < WIDTH; i++) {
   let row = document.createElement("div");
   row.classList.add("row");
-  for (let j = 0; j < 10; j++) {
+  for (let j = 0; j < HEIGHT; j++) {
     let sq = document.createElement("div");
     let id = (i + 1) + "-" + (j + 1);
     sq.setAttribute("id", id);
@@ -13,6 +20,6 @@ for (let i = 0; i < 10; i++) {
     }
     row.appendChild(sq);
   }
-  document.body.appendChild(row);
+  container.appendChild(row);
 }
 

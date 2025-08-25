@@ -13,10 +13,16 @@ function setChosenPosition(id) {
     if(chosenPosition) {
         let current = document.getElementById(chosenPosition);
         current.classList.remove("pixel-active");
+        if(current == document.getElementById(id)) {
+            chosenPosition = null;
+            paletteDisplayOff();
+            return;
+        }
     }
     let next = document.getElementById(id);
     next.classList.add("pixel-active");
     chosenPosition = id;
+    paletteDisplayOn();
 }
 
 function updateColor(colorId) {
@@ -25,9 +31,7 @@ function updateColor(colorId) {
         return;
     }
     pixelColorList[chosenPosition] = colorId;
-    console.log(pixelColorList);
     localStorage.setItem("pixelColorList", JSON.stringify(pixelColorList));
-    console.log(JSON.parse(localStorage.getItem("pixelColorList")))
     let pixel = document.getElementById(chosenPosition);
     pixel.style.backgroundColor = color;
 }

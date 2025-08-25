@@ -21,3 +21,5 @@ var COLOR_LIST = [
   "#FFD700", // Gold
 ];
 var DEFAULT_COLOR = COLOR_LIST[0];
+var WIDTH = 100;
+var HEIGHT = 100;

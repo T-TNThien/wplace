@@ -1,4 +1,5 @@
 let palette = document.getElementById("color-palette");
+let paletteContainer = document.getElementById("color-palette-container");
 
 let LENGTH = COLOR_LIST.length;
 for (let i = 0; i < LENGTH; i++) {
@@ -10,4 +11,12 @@ for (let i = 0; i < LENGTH; i++) {
     updateColor(this.id);
   }
   palette.appendChild(color);
+}
+
+function paletteDisplayOn() {
+  paletteContainer.classList.add("visible");
+}
+
+function paletteDisplayOff() {
+  paletteContainer.classList.remove("visible");
 }
