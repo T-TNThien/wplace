@@ -36,5 +36,4 @@ function colorDisplayOff(id) {
   color = document.getElementById(id);
   color.classList.remove("color-active");
   paint.classList.remove("visible");
-  paletteDisplayOff();
 }
