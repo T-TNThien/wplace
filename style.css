@@ -1,23 +1,26 @@
 body {
+    height: 100vh;
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #252525;
+    color: white;
 }
 
 .color {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     box-sizing: border-box;
+    transition: border 0.15s ease;
+    border: solid 0px transparent;
 }
 
 .color-active {
-    border: solid 2px grey;
+    border: solid 4px #E0E0E0 !important;
 }
 
 #color-palette {
     margin: 10px;
     padding: 20px;
-    background-color: blanchedalmond;
+    background-color: #E0E0E0;
     border: solid 1px lightgrey;
     border-radius: 20px;
     display: grid;
@@ -47,6 +50,13 @@ body {
     align-items: center;
 }
 
+#grid {
+    display: grid;
+    aspect-ratio: 1/1;
+    height: 100%;
+    margin: auto;
+}
+
 #paint-button {
     margin-top: 10px;
     padding: 10px 20px;
@@ -69,9 +79,7 @@ body {
 }
 
 .pixel {
-    width: 20px;
-    height: 20px;
-    box-sizing: border-box;
+    position: relative;
     user-select: none;
 }
 
@@ -80,9 +88,10 @@ body {
 }
 
 .pixel-active {
-    border: solid 2px white;
+    animation: pulse 1s ease-in-out infinite;
 }
 
-.row {
-    display: flex;
+@keyframes pulse {
+    0%, 100% {filter: none;}
+    50% {filter: invert(0.5) contrast(1.2);}
 }

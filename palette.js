@@ -7,7 +7,7 @@ let LENGTH = COLOR_LIST.length;
 // Create palette
 for (let i = 0; i < LENGTH; i++) {
   let color = document.createElement("div");
-  color.setAttribute("id", i);
+  color.id = i;
   color.classList.add("color");
   color.style.backgroundColor = COLOR_LIST[i];
   color.onclick = function() {
