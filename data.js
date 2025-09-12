@@ -63,8 +63,8 @@ function setDimension(d) {
 function unsetChosenPosition() {
     let current = document.getElementById(chosenPosition);
     current.classList.remove("pixel-active");
-    chosenPosition = null;
     colorDisplayOff(chosenColor);
+    chosenPosition = null;
 }
 
 // Change color of pixel and save to local storage
@@ -79,4 +79,13 @@ function updateColor() {
     pixel.style.backgroundColor = color;
     setChosenPosition(chosenPosition);
     // setChosenColor(chosenColor);
+}
+    
+function changeSize() {
+    let dimensions = getCustomDimension();
+    if(dimensions.value != getDimension()) {
+        setDimension(dimensions.value);
+        grid.innerHTML = '';
+        createGrid();
+    } else { closeSizeDisplay(); }
 }

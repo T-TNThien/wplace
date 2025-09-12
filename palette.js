@@ -1,6 +1,8 @@
 let paint = document.getElementById("paint-button");
 paint.onclick = updateColor;
-getPaletteOutside().onclick = unsetChosenPosition;
+getPaletteOutside().onclick = function() {
+  setChosenPosition(chosenPosition);
+}
 
 function palette() {
   let palette = document.getElementById("color-palette");

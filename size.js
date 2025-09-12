@@ -37,14 +37,10 @@ function size() {
             outside.removeEventListener("click", closeSizeDisplay);
         }
     }
-    
-    function changeSize() {
-        if(dimensions.value != getDimension()) {
-            setDimension(dimensions.value);
-            grid.innerHTML = '';
-            createGrid();
-        } else { closeSizeDisplay(); }
-    }
+}
+
+function getCustomDimension() {
+    return document.getElementById("dimension");
 }
 
 size();

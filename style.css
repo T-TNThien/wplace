@@ -69,7 +69,6 @@ body {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
 }
 
 #color-palette-display-outside.hidden {
