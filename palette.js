@@ -1,29 +1,53 @@
-let palette = document.getElementById("color-palette");
-let paletteContainer = document.getElementById("color-palette-container");
 let paint = document.getElementById("paint-button");
 paint.onclick = updateColor;
+getPaletteOutside().onclick = unsetChosenPosition;
 
-let LENGTH = COLOR_LIST.length;
-// Create palette
-for (let i = 0; i < LENGTH; i++) {
-  let color = document.createElement("div");
-  color.id = i;
-  color.classList.add("color");
-  color.style.backgroundColor = COLOR_LIST[i];
-  color.onclick = function() {
-    setChosenColor(this.id);
+function palette() {
+  let palette = document.getElementById("color-palette");
+  
+  // The number of colors
+  let LENGTH = COLOR_LIST.length;
+  // Create palette
+  for (let i = 0; i < LENGTH; i++) {
+    let color = document.createElement("div");
+    color.id = i;
+    color.classList.add("color");
+    color.style.backgroundColor = COLOR_LIST[i];
+    color.onclick = function () {
+      setChosenColor(this.id);
+    };
+    palette.appendChild(color);
   }
-  palette.appendChild(color);
 }
 
-// Make palette visible
-function paletteDisplayOn() {
-  paletteContainer.classList.add("visible");
+function getPaletteContainer() {
+  return document.getElementById("color-button-palette");
 }
 
-// Make palette invisible
-function paletteDisplayOff() {
-  paletteContainer.classList.remove("visible");
+function getPaletteOutside() {
+  return document.getElementById("color-palette-display-outside");
+}
+
+// Open palette
+function openPalette() {
+  let palette = getPaletteContainer();
+  let outside = getPaletteOutside();
+  if(!palette.classList.contains("visible") && outside.classList.contains("hidden")) {
+    palette.classList.add("visible");
+    outside.classList.remove("hidden");
+    outside.addEventListener("click", closePalette);
+  }
+}
+
+// Close palette
+function closePalette() {
+  let palette = getPaletteContainer();
+  let outside = getPaletteOutside();
+  if(palette.classList.contains("visible") && !outside.classList.contains("hidden")) {
+    palette.classList.remove("visible");
+    outside.classList.add("hidden");
+    outside.removeEventListener("click", closePalette);
+  }
 }
 
 // Make chosen color and paint buttons visible
@@ -37,3 +61,5 @@ function colorDisplayOff(id) {
   color.classList.remove("color-active");
   paint.classList.remove("visible");
 }
+
+palette();

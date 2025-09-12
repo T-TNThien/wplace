@@ -2,6 +2,10 @@
 let pixelColorList = JSON.parse(localStorage.getItem("pixelColorList") || "{}");
 let chosenPosition = null;
 let chosenColor = null;
+let dimension = parseInt(localStorage.getItem("dimension"));
+if(isNaN(dimension)) {
+  dimension = 16;
+}
 
 function getDict() {
     return pixelColorList;
@@ -11,6 +15,10 @@ function getChosenPosition() {
     return chosenPosition;
 }
 
+function getDimension() {
+    return dimension;
+}
+
 // Set active pixel
 function setChosenPosition(id) {
     if(chosenPosition) {
@@ -18,14 +26,14 @@ function setChosenPosition(id) {
         current.classList.remove("pixel-active");
         if(current == document.getElementById(id)) {
             chosenPosition = null;
-            paletteDisplayOff();
+            closePalette();
             return;
         }
     }
     let next = document.getElementById(id);
     next.classList.add("pixel-active");
     chosenPosition = id;
-    paletteDisplayOn();
+    openPalette();
 }
 
 // Set active palette color
@@ -45,6 +53,20 @@ function setChosenColor(id) {
     colorDisplayOn(id);
 }
 
+function setDimension(d) {
+    if(!isNaN(d)) {
+        localStorage.setItem("dimension", d);
+        dimension = d;
+    }
+}
+
+function unsetChosenPosition() {
+    let current = document.getElementById(chosenPosition);
+    current.classList.remove("pixel-active");
+    chosenPosition = null;
+    colorDisplayOff(chosenColor);
+}
+
 // Change color of pixel and save to local storage
 function updateColor() {
     let color = COLOR_LIST[chosenColor];
@@ -56,5 +78,5 @@ function updateColor() {
     let pixel = document.getElementById(chosenPosition);
     pixel.style.backgroundColor = color;
     setChosenPosition(chosenPosition);
-    setChosenColor(chosenColor);
+    // setChosenColor(chosenColor);
 }

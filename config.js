@@ -53,7 +53,5 @@ var COLOR_LIST = [
 ];
 // Default color
 var DEFAULT_COLOR = COLOR_LIST[0];
-// Grid size
-var WIDTH = localStorage.getItem("width") || 100;
-var HEIGHT = localStorage.getItem("height") || 100;
-console.log(WIDTH, HEIGHT);
+// Grid sizes
+var DIMENSION_LIST = [16, 32, 64, 100];
