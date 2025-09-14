@@ -8,18 +8,27 @@ function createGrid() {
   for (let i = 0; i < dimension; i++) {
     for (let j = 0; j < dimension; j++) {
       let sq = document.createElement("div");
-      let id = (i + 1) + "-" + (j + 1);
+      let id = i + 1 + "-" + (j + 1);
       sq.setAttribute("id", id);
       sq.style.backgroundColor = COLOR_LIST[colorDict[id]] || DEFAULT_COLOR;
-      sq.style.setProperty("--color", COLOR_LIST[colorDict[id]] || DEFAULT_COLOR);
+      sq.style.setProperty(
+        "--color",
+        COLOR_LIST[colorDict[id]] || DEFAULT_COLOR
+      );
       sq.classList.add("pixel");
       // Set active pixel
       sq.onclick = function () {
-          setChosenPosition(this.id);
-      }
+        setChosenPosition(this.id);
+        getOutsideArea().classList.remove("hidden");
+      };
       grid.appendChild(sq);
     }
   }
+  document.addEventListener("keypress", (e) => {
+    if(e.code == "Space" && chosenPosition && chosenColor) {
+      updateColor();
+    }
+  })
 }
 
 createGrid();

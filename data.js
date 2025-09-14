@@ -6,6 +6,9 @@ let dimension = parseInt(localStorage.getItem("dimension"));
 if(isNaN(dimension)) {
   dimension = 16;
 }
+getOutsideArea().onclick = function() {
+  setChosenPosition(chosenPosition);
+}
 
 function getDict() {
     return pixelColorList;
@@ -19,6 +22,10 @@ function getDimension() {
     return dimension;
 }
 
+function getOutsideArea() {
+  return document.getElementById("display-outside");
+}
+
 // Set active pixel
 function setChosenPosition(id) {
     if(chosenPosition) {
@@ -26,14 +33,16 @@ function setChosenPosition(id) {
         current.classList.remove("pixel-active");
         if(current == document.getElementById(id)) {
             chosenPosition = null;
-            closePalette();
+            paintButtonOff();
+            // closePalette();
             return;
         }
     }
     let next = document.getElementById(id);
     next.classList.add("pixel-active");
     chosenPosition = id;
-    openPalette();
+    // openPalette();
+    paintButtonOn();
 }
 
 // Set active palette color
@@ -43,14 +52,14 @@ function setChosenColor(id) {
         current.classList.remove("color-active");
         if(current == document.getElementById(id)) {
             chosenColor = null;
-            colorDisplayOff(id);
+            paintButtonOff();
             return;
         }
     }
     let next = document.getElementById(id);
     next.classList.add("color-active");
     chosenColor = id;
-    colorDisplayOn(id);
+    paintButtonOn(id);
 }
 
 function setDimension(d) {
@@ -63,8 +72,7 @@ function setDimension(d) {
 function unsetChosenPosition() {
     let current = document.getElementById(chosenPosition);
     current.classList.remove("pixel-active");
-    colorDisplayOff(chosenColor);
-    chosenPosition = null;
+    setChosenColor(chosenColor);
 }
 
 // Change color of pixel and save to local storage

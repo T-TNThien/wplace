@@ -65,13 +65,13 @@ body {
     opacity: 1;
 }
 
-#color-palette-display-outside {
+#display-outside {
     position: absolute;
     width: 100vw;
     height: 100vh;
 }
 
-#color-palette-display-outside.hidden {
+#display-outside.hidden {
     display: none;
 }
 
