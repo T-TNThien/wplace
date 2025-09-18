@@ -13,9 +13,47 @@ body {
     border-radius: 20px;
     color: #505050;
     cursor: pointer;
+    user-select: none;
     font-weight: bold;
     background-color: #7b9b4a;
     color: #E0E0E0;
+}
+
+#buttons-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    top: 0;
+    right: 0;
+    gap: 10px;
+    z-index: 10;
+}
+
+#buttons-container > div {
+    margin-right: 10px;
+}
+
+#buttons-outside {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#buttons-outside.hidden {
+    display: none;
+}
+
+#change-size-button {
+    min-width: 90px;
+}
+
+#clean-container {
+    position: relative;
+}
+
+#clean-toggle-button {
+    position: static;
 }
 
 .color {
@@ -167,13 +205,9 @@ select {
 }
 
 #size-container {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    top: 0;
-    z-index: 10;
+    position: relative;
+    margin-top: 10px;
+    
 }
 
 #size-close-button {
@@ -186,18 +220,20 @@ select {
     justify-content: center;
     align-self: flex-end;
     cursor: pointer;
+    user-select: none;
 }
 
 #size-display {
     background-color: #E0E0E0;
-    margin: 10px 10px 0 0;
     padding: 10px;
     border-radius: 20px;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    top: 0;
     right: 0;
+    z-index: 20;
     opacity: 0;
     overflow: hidden;
     pointer-events: none;
@@ -212,41 +248,40 @@ select {
     transition: opacity 0.3s ease 0.1s, transform 0.3s ease;
 }
 
-#size-display-outside {
-    width: 100vw;
-    height: 100vh;
-}
-
-#size-display-outside.hidden {
-    display: none;
-}
-
 #size-toggle-button {
-    background-color: #E0E0E0;
-    margin: 10px 10px 0 0;
-    padding: 10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: static;
     opacity: 1;
     pointer-events: all;
-    transform: translate(0, 0);
-    transition: opacity 0.2s ease 0.1s, transform 0.2s ease;
-}
-
-#size-toggle-button i {
-    color: #434041;
+    /* transform: translate(0, 0); */
+    transition: opacity 0.2s ease 0.2s;
 }
 
 #size-toggle-button.hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translate(100%, -100%);
-    transition: opacity 0.2s ease, transform 0.2s ease 0.1s;
+    /* transform: translate(100%, -100%); */
+    transition: opacity 0.2s ea2e;
+}
+
+.toggle-button {
+    background-color: #E0E0E0;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-button i {
+    color: #434041;
+}
+
+.unavailable {
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
 }

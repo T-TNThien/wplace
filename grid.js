@@ -2,6 +2,11 @@ let colorDict = getDict();
 let grid = document.createElement("div");
 grid.id = "grid";
 document.body.appendChild(grid);
+const keyPressEvent = (e) => {
+  if(e.code == "Space" && chosenPosition && chosenColor) {
+    paint.click();
+  }
+}
 
 function createGrid() {
   grid.style.gridTemplateColumns = "repeat(" + dimension + ", auto)";
@@ -24,11 +29,7 @@ function createGrid() {
       grid.appendChild(sq);
     }
   }
-  document.addEventListener("keypress", (e) => {
-    if(e.code == "Space" && chosenPosition && chosenColor) {
-      updateColor();
-    }
-  })
+  document.addEventListener("keypress", keyPressEvent);
 }
 
 createGrid();

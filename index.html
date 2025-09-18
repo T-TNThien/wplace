@@ -17,23 +17,35 @@
             <div id="color-palette"></div>
         </div>
     </div>
-    <div id="size-container">
-        <div id="size-toggle-button"><i class="fa-solid fa-expand"></i></div>
-        <div id="size-display">
-            <div id="size-close-button-container" class="container">
-                <i id="size-close-button" class="fa-solid fa-xmark"></i>
-            </div>
-            <div id="dimension-container">
-                <select name="dimension" id="dimension"></select>
-                <div id="drop-down-arrow">
-                    <i class="fa-solid fa-caret-down"></i>
+    <div id="buttons-container">
+        <span id="buttons-outside" class="hidden"></span>
+        <div id="size-container" title="Change Size">
+            <div id="size-toggle-button" class="toggle-button"><i class="fa-solid fa-expand"></i></div>
+            <div id="size-display">
+                <div id="size-close-button-container" class="container">
+                    <i id="size-close-button" class="fa-solid fa-xmark"></i>
                 </div>
+                <div id="dimension-container">
+                    <select name="dimension" id="dimension"></select>
+                    <div id="drop-down-arrow">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </div>
+                <div id="change-size-button" class="button">Change Size</div>
             </div>
-            <div id="change-size-button" class="button">Change Size</div>
         </div>
-        <div id="size-display-outside" class="hidden"></div>
+        <div id="clean-container" title="Clean Board">
+            <div id="clean-toggle-button" class="toggle-button"><i class="fa-solid fa-trash"></i></div>
+        </div>
+        <div id="undo" title="Undo">
+            <div id="undo-button" class="toggle-button unavailable"><i class="fa-solid fa-rotate-left"></i></div>
+        </div>
+        <div id="redo" title="Redo">
+            <div id="redo-button" class="toggle-button unavailable"><i class="fa-solid fa-rotate-right"></i></div>
+        </div>
     </div>
     <script src="config.js"></script>
+    <script src="stack.js"></script>
     <script src="data.js"></script>
     <script src="grid.js"></script>
     <script src="palette.js"></script>

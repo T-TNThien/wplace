@@ -1,5 +1,15 @@
 let paint = document.getElementById("paint-button");
-paint.onclick = updateColor;
+paint.onclick = function () {
+  var state = {"position": chosenPosition, "prevColor": pixelColorList[chosenPosition], "nextColor": chosenColor}
+  if(!redo.isEmpty()) {
+      redo.clearStack();
+      redoButtonDisplayOff();
+  }
+  undo.push(state);
+  window.onbeforeunload = onBeforeUnloadUndoRedo;
+  undoButtonDisplayOn();
+  updatePositionColor();
+}
 
 function createPalette() {
   let palette = document.getElementById("color-palette");

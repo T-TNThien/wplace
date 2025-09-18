@@ -1,7 +1,7 @@
 function size() {
     let openButton = document.getElementById("size-toggle-button");
     let display = document.getElementById("size-display");
-    let outside = document.getElementById("size-display-outside");
+    let outside = document.getElementById("buttons-outside");
     let closeButton = document.getElementById("size-close-button");
     let dimensions = document.getElementById("dimension");
     let changeSizeButton = document.getElementById("change-size-button");
